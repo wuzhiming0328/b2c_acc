@@ -1,0 +1,120 @@
+{
+   "commerceSuiteVersion": "6.7.0.1",
+   "extensions": [
+       "optcustomerfacade",
+       "yacceleratorstorefront",
+       "backoffice",
+       "platformbackoffice",
+       "electronicsstore",
+       "basecommercebackoffice",       
+       "yacceleratorfulfilmentprocess",
+       "solrfacetsearchbackoffice",
+       "commerceservicesbackoffice"
+   ],
+   "storeFrontExtension": "yacceleratorstorefront",
+   "storeFrontWebRoot": "/yacceleratorstorefront",
+   "properties": [
+        {
+            "key": "test.property.1",
+            "value": "test.property.1.value"
+        },
+        {
+            "key": "test.property.2",
+            "value": "test.property.2.value"
+        }
+    ],
+   "project": "ps_cc2v1",
+   "recipe": "pipeline_b2c_dockerized",
+   "resultingImageVersion": "ps_cc2v1",    
+   "aspects": [
+         {
+            "name": "backoffice",
+            "properties": [],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "backoffice",
+                    "contextPath": "/backoffice"
+                }
+            ]
+        },
+        {
+            "name": "accstorefront",
+            "properties": [
+               {
+                    "key": "regioncache.queryregion.evictionpolicy",
+                    "value": "LRU"
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "yacceleratorstorefront",
+                    "contextPath": "/backoffice"
+                }
+            ]
+        },
+       {
+            "name": "backgroundProcessing",
+            "properties": [
+                {
+                    "key": "cluster.node.groups",
+                    "value": "backgroundProcessing"
+                },
+                {
+                    "key": "task.workers.max",
+                    "value": "40"
+                },
+                {
+                    "key": "impex.import.workers",
+                    "value": "8"
+                },
+                {
+                    "key": "catalog.sync.workers",
+                    "value": "8"
+                },
+                {
+                    "key": "task.polling.interval",
+                    "value": "1"
+                },
+                {
+                    "key": "processengine.process.canjoinpreviousnode.default",
+                    "value": "true"
+                },
+                {
+                    "key": "yacceleratorfulfilmentprocess.fraud.scoreLimit",
+                    "value": "10000"
+                }                  
+            ],
+            "webapps": [
+                {
+                    "name": "hac",
+                    "contextPath": "/hac"
+                },
+                {
+                    "name": "mediaweb",
+                    "contextPath": "/medias"
+                },
+                {
+                    "name": "yacceleratorstorefront",
+                    "contextPath": "/backoffice"
+                }
+            ]
+        }
+    ]
+}
+
