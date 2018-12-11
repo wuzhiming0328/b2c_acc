@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2000-2013 hybris AG
+ All rights reserved.
+
+ This software is the confidential and proprietary information of hybris
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with hybris.
+-->
+
+ <beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+
+xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+		  
+	<context:component-scan base-package="de.hybris.support.facades.imp" />
+	
+	<alias name="optCustomerFacade" alias="customerFacade"/>
+	<bean id="optCustomerFacade" class="de.hybris.support.facades.impl.OptCustomerFacade" parent="defaultCustomerFacade">
+		<property name="userService" ref="userService"/>
+		<property name="customerAccountService" ref="customerAccountService"/>
+		<property name="commonI18NService" ref="commonI18NService"/>
+		<property name="modelService" ref="modelService"/>
+		<property name="cartService" ref="cartService"/>
+		<property name="commerceCartService" ref="commerceCartService"/>
+		<property name="sessionService" ref="sessionService"/>
+		<property name="storeSessionFacade" ref="storeSessionFacade"/>
+		<property name="userFacade" ref="userFacade"/>
+
+		<property name="addressReversePopulator" ref="addressReversePopulator"/>
+		<property name="customerReversePopulator" ref="customerReversePopulator"/>
+		<property name="customerConverter" ref="customerConverter"/>
+		<property name="addressConverter" ref="addressConverter"/>
+		<property name="titleConverter" ref="titleConverter"/>
+		<property name="creditCardPaymentInfoConverter" ref="creditCardPaymentInfoConverter"/>
+
+		<property name="customerNameStrategy" ref="customerNameStrategy"/>
+		<property name="passwordEncoderService" ref="passwordEncoderService"/>
+		<property name="orderFacade" ref="orderFacade"/>
+		<property name="cartCleanStrategy" ref="cartValidationStrategy" />
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+		
+	</bean>
+</beans>

@@ -1,0 +1,9 @@
+#Ant properties
+#Wed Sep 13 09:20:54 CEST 2017
+builddate=20170913 0918
+description=optcustomerfacade
+name=optcustomerfacade
+releasedate=20150915 1445
+vendor=hybris
+version=5.7.0.29
+version.api=5.7.0
